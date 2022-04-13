@@ -1,7 +1,7 @@
 from discord import Embed, Color
 from discord.commands import slash_command
 from discord.ext import commands
-from sdb_lib import Config, Log, info_embed
+from sdb_lib import Config, Log, info_embed, Messages
 
 
 class Help(commands.Cog):
@@ -14,7 +14,7 @@ class Help(commands.Cog):
         guild_ids = Config.guild_ids
     )
     async def _help(self, ctx):
-        await ctx.respond(embed = info_embed("Nothing to be seen yet..."))
+        await ctx.respond(embed = info_embed(Messages.help_message))
 
     async def cog_command_error(self, ctx, error):
         if isinstance(error, commands.CommandInvokeError):

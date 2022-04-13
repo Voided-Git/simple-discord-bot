@@ -1,7 +1,7 @@
 from discord import Member
 from discord.commands import slash_command, Option
 from discord.ext import commands
-from sdb_lib import Config, error_embed, success_embed
+from sdb_lib import Config, error_embed, success_embed, Messages
 
 
 class Ban(commands.Cog):
@@ -20,9 +20,9 @@ class Ban(commands.Cog):
     ):
         try:
             await member.ban(reason = reason)
-            await ctx.respond(embed = success_embed(f"`{member.name}` was banned."))
+            await ctx.respond(embed = success_embed(Messages.ban_success.replace("{}", member.name)))
         except Exception:
-            await ctx.respond(embed = error_embed(f"{member.mention} can't be banned by me."))
+            await ctx.respond(embed = error_embed(Messages.ban_fail.replace("{}", member.mention)))
 
 
 def setup(bot):

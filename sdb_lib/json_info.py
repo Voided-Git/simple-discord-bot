@@ -17,3 +17,15 @@ class Config:
     tick = config["emotes"]["tick"]
     cross = config["emotes"]["cross"]
     loading = config["emotes"]["loading"]
+
+
+class Messages:
+    messages = load_json("./config.json")["messages"]
+
+    help_message = messages["general"]["help.message"]
+    ping_message = messages["general"]["ping.message"]
+
+    ban_fail = messages["moderation"]["ban.fail"]
+    ban_success = messages["moderation"]["ban.success"]
+    kick_fail = messages["moderation"]["kick.fail"]
+    kick_success = messages["moderation"]["kick.success"]
