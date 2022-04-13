@@ -15,12 +15,12 @@ class Kick(commands.Cog):
     )
     async def kick(
         self, ctx,
-        member: Option(Member, "member:"),
-        reason: Option(str, "reason:", required = False)
+        member: Option(Member, "member"),
+        reason: Option(str, "reason", required = False)
     ):
         try:
             await member.kick(reason = reason)
-            await ctx.respond(embed = success_embed(f"{member.name} was kicked."))
+            await ctx.respond(embed = success_embed(f"`{member.name}` was kicked."))
         except Exception:
             await ctx.respond(embed = error_embed(f"{member.mention} can't be kicked by me."))
 
