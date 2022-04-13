@@ -14,7 +14,7 @@ class Ping(commands.Cog):
         guild_ids = Config.guild_ids
     )
     async def ping(self, ctx):
-        await ctx.respond(embed = info_embed(f"📶 {Messages.ping_message.replace('{}', str(round(self.bot.latency * 1000)))}"))
+        await ctx.respond(embed = info_embed(Messages.ping_message.replace('{}', str(round(self.bot.latency * 1000)))))
 
 
 def setup(bot):

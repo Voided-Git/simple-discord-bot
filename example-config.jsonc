@@ -17,7 +17,7 @@
         "events": {},
         "general": {
             "help.message": "Nothing to be seen yet...",
-            "ping.message": "Ping: `{}`ms"
+            "ping.message": ":signal_strength: Ping: `{}`ms"
         },
         "moderation": {
             "ban.fail": "{} can't be banned by me.",
