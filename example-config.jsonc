@@ -6,6 +6,9 @@
     "guild_ids": [
         // guilds here in integer form (just numbers no "")
     ],
+    "developer_ids": [
+        // developers here in integer form (just numbers no "")
+    ],
 
     "emotes": {
         "cross": ":heavy_check_mark:",
@@ -18,7 +21,8 @@
             "error.missing_permissions": "You lack sufficient permissions ({}).",
             "error.bot_missing_permissions": "I lack sufficient permissions ({}).",
             "error.missing_argument": "A required argument is missing.",
-            "error.command_error": "Something has gone wrong ({})."
+            "error.command_error": "Something has gone wrong ({}).",
+            "error.not_developer": "You can't use that command, you are not a developer."
         },
         "fun": {
             "8ball.responses": [

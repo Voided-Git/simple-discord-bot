@@ -13,6 +13,7 @@ class Config:
     prefix = config["prefix"]
 
     guild_ids = config["guild_ids"]
+    developer_ids = config["developer_ids"]
 
     tick = config["emotes"]["tick"]
     cross = config["emotes"]["cross"]
@@ -26,6 +27,7 @@ class Messages:
     bot_missing_permissions = messages["events"]["error.bot_missing_permissions"]
     missing_argument = messages["events"]["error.missing_argument"]
     command_error = messages["events"]["error.command_error"]
+    not_developer = messages["events"]["error.not_developer"]
 
     _8ball_responses = messages["fun"]["8ball.responses"]
 
