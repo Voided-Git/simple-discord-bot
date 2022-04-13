@@ -8,9 +8,9 @@
     ],
 
     "emotes": {
-        "cross": "✔",
-        "tick": "❌",
-        "loading": "➿"
+        "cross": ":heavy_check_mark:",
+        "tick": ":x:",
+        "loading": ":loop:"
     },
 
     "messages": {
