@@ -15,10 +15,10 @@
 
     "messages": {
         "events": {
-            "error.missing_permissions": "You lack sufficient permissions.",
-            "error.bot_missing_permissions": "I lack sufficient permissions.",
+            "error.missing_permissions": "You lack sufficient permissions ({}).",
+            "error.bot_missing_permissions": "I lack sufficient permissions ({}).",
             "error.missing_argument": "A required argument is missing.",
-            "error.command_error": "Something has gone wrong."
+            "error.command_error": "Something has gone wrong ({})."
         },
         "general": {
             "help.message": "Nothing to be seen yet...",

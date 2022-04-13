@@ -24,6 +24,14 @@ class Clear(commands.Cog):
         except Exception:
             await ctx.respond(embed = error_embed(Messages.clear_fail))
 
+    @clear.error
+    async def clear_error(self, ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.respond(embed = error_embed(Messages.missing_permissions.replace("{}", "`MANAGE_MESSAGES`")))
+
+        elif isinstance(error, commands.BotMissingPermissions):
+            await ctx.respond(embed = error_embed(Messages.bot_missing_permissions.replace("{}", "`MANAGE_MESSAGES`")))
+
 
 def setup(bot):
     bot.add_cog(Clear(bot))

@@ -26,6 +26,14 @@ class Ban(commands.Cog):
         except Exception:
             await ctx.respond(embed = error_embed(Messages.ban_fail.replace("{}", member.mention)))
 
+    @ban.error
+    async def ban_error(self, ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.respond(embed = error_embed(Messages.missing_permissions.replace("{}", "`BAN_MEMBERS`")))
+
+        elif isinstance(error, commands.BotMissingPermissions):
+            await ctx.respond(embed = error_embed(Messages.bot_missing_permissions.replace("{}", "`BAN_MEMBERS`")))
+
 
 def setup(bot):
     bot.add_cog(Ban(bot))
