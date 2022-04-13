@@ -22,6 +22,8 @@
         "moderation": {
             "ban.fail": "{} can't be banned by me.",
             "ban.success": "`{}` was banned.",
+            "clear.fail": "I don't have the right permissions.",
+            "clear.success": "`{}` message(s) were removed.",
             "kick.fail": "{} can't be kicked by me.",
             "kick.success": "`{}` was kicked."
         }
