@@ -1,0 +1,15 @@
+{
+    "token": "BOT_TOKEN_HERE",
+
+    "prefix": ".",  // unnecessary due to slash commands, only here as a redundancy
+
+    "guild_ids": [
+        // guilds here in integer form (just numbers no "")
+    ],
+
+    "emotes": {
+        "cross": "✔",
+        "tick": "❌",
+        "loading": "➿"
+    }
+}
