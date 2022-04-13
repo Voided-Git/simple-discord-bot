@@ -1,4 +1,3 @@
-from discord import Embed, Color
 from discord.commands import slash_command
 from discord.ext import commands
 from sdb_lib import Config, info_embed, Messages

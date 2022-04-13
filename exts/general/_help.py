@@ -1,7 +1,6 @@
-from discord import Embed, Color
 from discord.commands import slash_command
 from discord.ext import commands
-from sdb_lib import Config, Log, info_embed, Messages
+from sdb_lib import Config, info_embed, Messages
 
 
 class Help(commands.Cog):
