@@ -27,6 +27,8 @@ class Messages:
     missing_argument = messages["events"]["error.missing_argument"]
     command_error = messages["events"]["error.command_error"]
 
+    _8ball_responses = messages["fun"]["8ball.responses"]
+
     help_message = messages["general"]["help.message"]
     ping_message = messages["general"]["ping.message"]
 
