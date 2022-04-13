@@ -36,3 +36,6 @@ class Messages:
     clear_success = messages["moderation"]["clear.success"]
     kick_fail = messages["moderation"]["kick.fail"]
     kick_success = messages["moderation"]["kick.success"]
+    timeout_error = messages["moderation"]["timeout.error"]
+    timeout_fail = messages["moderation"]["timeout.fail"]
+    timeout_success = messages["moderation"]["timeout.success"]

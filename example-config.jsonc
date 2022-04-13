@@ -30,7 +30,10 @@
             "clear.fail": "I don't have the right permissions.",
             "clear.success": "`{}` message(s) were removed.",
             "kick.fail": "{} can't be kicked by me.",
-            "kick.success": "`{}` was kicked."
+            "kick.success": "`{}` was kicked.",
+            "timeout.error": "`{}` is an invalid duration.",
+            "timeout.fail": "{} can't be timed out by me.",
+            "timeout.success": "{} was timed out."
         }
     }
 }
