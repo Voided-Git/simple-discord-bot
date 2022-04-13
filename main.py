@@ -17,7 +17,7 @@ def load_exts():
         if "." in folder:
             continue
 
-        for ext in listdir(f"./exts/{folder}"):
+        for ext in listdir(f"./exts/{folder}/"):
             if not ext.endswith(".py"):
                 continue
 
