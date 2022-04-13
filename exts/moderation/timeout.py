@@ -1,8 +1,8 @@
 from discord import Member
 from discord.commands import slash_command, Option
 from discord.ext import commands
-from sdb_lib import Config, success_embed, error_embed, Messages, parse_time, Log
-from datetime import timedelta, datetime
+from sdb_lib import Config, success_embed, error_embed, Messages, parse_time
+from datetime import timedelta
 
 
 class Timeout(commands.Cog):
@@ -29,8 +29,7 @@ class Timeout(commands.Cog):
         try:
             await member.timeout_for(duration = timedelta(seconds = _duration), reason = reason)
             await ctx.respond(embed = success_embed(Messages.timeout_success.replace("{}", member.mention)))
-        except Exception as exc:
-            Log.error(exc)
+        except Exception:
             await ctx.respond(embed = error_embed(Messages.timeout_fail.replace("{}", member.mention)))
 
     @timeout.error
