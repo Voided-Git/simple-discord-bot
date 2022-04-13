@@ -16,10 +16,6 @@ class Help(commands.Cog):
     async def _help(self, ctx):
         await ctx.respond(embed = info_embed(Messages.help_message))
 
-    async def cog_command_error(self, ctx, error):
-        if isinstance(error, commands.CommandInvokeError):
-            Log.error(error.original)
-
 
 def setup(bot):
     bot.add_cog(Help(bot))
