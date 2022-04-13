@@ -12,6 +12,8 @@ class Clear(commands.Cog):
         description = "Clears a number of messages",
         guild_ids = Config.guild_ids
     )
+    @commands.has_permissions(manage_messages = True)
+    @commands.bot_has_permissions(manage_messages = True)
     async def clear(
         self, ctx,
         amount: Option(int, "messages")

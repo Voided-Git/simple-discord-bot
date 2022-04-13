@@ -13,6 +13,8 @@ class Kick(commands.Cog):
         description = "Kicks a member from the server",
         guild_ids = Config.guild_ids
     )
+    @commands.has_permissions(kick_members = True)
+    @commands.bot_has_permissions(kick_members = True)
     async def kick(
         self, ctx,
         member: Option(Member, "member"),

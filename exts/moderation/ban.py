@@ -13,6 +13,8 @@ class Ban(commands.Cog):
         description = "Bans a member from the server",
         guild_ids = Config.guild_ids
     )
+    @commands.has_permissions(ban_members = True)
+    @commands.bot_has_permissions(ban_members = True)
     async def ban(
         self, ctx,
         member: Option(Member, "member"),
