@@ -11,5 +11,19 @@
         "cross": "✔",
         "tick": "❌",
         "loading": "➿"
+    },
+
+    "messages": {
+        "events": {},
+        "general": {
+            "help.message": "Nothing to be seen yet...",
+            "ping.message": "Ping: `{}`ms"
+        },
+        "moderation": {
+            "ban.fail": "{} can't be banned by me.",
+            "ban.success": "`{}` was banned.",
+            "kick.fail": "{} can't be kicked by me.",
+            "kick.success": "`{}` was kicked."
+        }
     }
 }
