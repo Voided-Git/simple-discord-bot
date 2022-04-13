@@ -1,5 +1,6 @@
 from discord import Embed, Color
 from .json_info import Config
+from os import listdir
 
 
 def info_embed(text: str):
@@ -43,3 +44,19 @@ def parse_time(time: str):
         return time * 151200
     elif _time == "y":
         return time * 7884000
+
+
+def list_exts():
+    exts = []
+
+    for folder in listdir("./exts/"):
+        if "." in folder:
+            continue
+
+        for ext in listdir(f"./exts/{folder}/"):
+            if not ext.endswith(".py"):
+                continue
+
+            exts.append(f"{folder}.{ext.removesuffix('.py')}")
+
+    return exts
