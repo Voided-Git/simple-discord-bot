@@ -1,5 +1,5 @@
 {
-    "token": "BOT_TOKEN_HERE",
+    "token": "BOT_TOKEN_HERE",  // found on your bot's 'Bot' section on the Discord developer portal
 
     "prefix": ".",  // unnecessary due to slash commands, only here as a redundancy
 
@@ -18,29 +18,42 @@
         3 - watching (Watching ...)
         */
         "status": 0,
-        "activity": "change me in the config.json file!"
+        "activity": "change me in the config.json file!"  // the text displayed after the status
     },
 
-    "guild_ids": [
+    "guild_ids": [  // necessary for slash commands to work, otherwise they would take an hour to register
         // guilds here in integer form (just numbers no "")
     ],
-    "developer_ids": [
+    "developer_ids": [  // only for developer-type commands
         // developers here in integer form (just numbers no "")
     ],
 
-    "emotes": {
+    "emotes": {  /*
+        emotes used by the bot, must be in Discord format:
+        ':emote_name:' - default Discord emotes
+        '<:custom_emote_name:emote_id>' - custom still emotes
+        '<a:custom_emote:emote_id>' - custom animated emotes
+
+        these emotes can be found easily by enabling developer mode, typing out the emote and placing a \ before the emote
+        sending this message will reveal the emote name and id in the case of a custom emote or the UNICODE version of a
+        default emote
+        */
         "cross": ":heavy_check_mark:",
         "tick": ":x:",
         "loading": ":loop:"
     },
 
     "messages": {
+        /*
+        {} indicates a placeholder, this will be replaced by the bot when sending the message and it's recommended to keep the placeholder
+        for information that may come up from error messages, though they are not necessary for the bot to function
+        */
         "events": {
-            "error.missing_permissions": "You lack sufficient permissions ({}).",
-            "error.bot_missing_permissions": "I lack sufficient permissions ({}).",
-            "error.missing_argument": "A required argument is missing.",
-            "error.command_error": "Something has gone wrong ({}).",
-            "error.not_developer": "You can't use that command, you are not a developer."
+            "error.missing_permissions": "You lack sufficient permissions ({}).",  // the command invoker lacks permissions required (security feature)
+            "error.bot_missing_permissions": "I lack sufficient permissions ({}).",  // the bot lacks permissions required
+            "error.missing_argument": "A required argument is missing.",  // one or more arguments are missing
+            "error.command_error": "Something has gone wrong ({}).",  // general command error
+            "error.not_developer": "You can't use that command, you are not a developer."  // the command invoker is not a developer (their ID isn't in the config file under 'developer_ids')
         },
         "fun": {
             "8ball.responses": [
@@ -51,19 +64,19 @@
             ]
         },
         "general": {
-            "help.message": "Nothing to be seen yet...",
-            "ping.message": ":signal_strength: Ping: `{}`ms"
+            "help.message": "Nothing to be seen yet...",  // message for '/help' command
+            "ping.message": ":signal_strength: Ping: `{}`ms"  // message for '/ping' command
         },
         "moderation": {
-            "ban.fail": "{} can't be banned by me.",
-            "ban.success": "`{}` was banned.",
-            "clear.fail": "I don't have the right permissions.",
-            "clear.success": "`{}` message(s) were removed.",
-            "kick.fail": "{} can't be kicked by me.",
-            "kick.success": "`{}` was kicked.",
-            "timeout.error": "`{}` is an invalid duration.",
-            "timeout.fail": "{} can't be timed out by me.",
-            "timeout.success": "{} was timed out."
+            "ban.fail": "{} can't be banned by me.",  // the bot lacks BAN_MEMBERS permission or is lower ranking than the target user
+            "ban.success": "`{}` was banned.",  // the target user was successfully banned
+            "clear.fail": "I don't have the right permissions.",  // the bot lacks MANAGE_MESSAGES permission
+            "clear.success": "`{}` message(s) were removed.",  // the amount of message were successfully removed
+            "kick.fail": "{} can't be kicked by me.",  // the bot lacks KICK_MEMBERS permission or is lower ranking than the target user
+            "kick.success": "`{}` was kicked.",  // the target user was successfully kicked
+            "timeout.error": "`{}` is an invalid duration.",  // an invalid duration specified, correct format is 3d (for 3 days) as an example
+            "timeout.fail": "{} can't be timed out by me.",  // the bot lacks TIMEOUT_MEMBERS permission or is lower ranking than the target user
+            "timeout.success": "{} was timed out."  // the target user was successfully timed out
         }
     }
 }
