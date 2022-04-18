@@ -12,6 +12,13 @@ class Config:
 
     prefix = config["prefix"]
 
+    class presence:
+        presence = load_json("./config.json")["presence"]
+
+        mode = presence["mode"]
+        status = presence["status"]
+        activity = presence["activity"]
+
     guild_ids = config["guild_ids"]
     developer_ids = config["developer_ids"]
 

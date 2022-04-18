@@ -3,6 +3,24 @@
 
     "prefix": ".",  // unnecessary due to slash commands, only here as a redundancy
 
+    "presence": {
+        /*
+        0 - online
+        1 - idle
+        2 - do not disturb
+        3 - invisible
+        */
+        "mode": 0,
+        /*
+        0 - game (Playing ...)
+        1 - stream (Streaming ...)
+        2 - listening (Listening to ...)
+        3 - watching (Watching ...)
+        */
+        "status": 0,
+        "activity": "change me in the config.json file!"
+    },
+
     "guild_ids": [
         // guilds here in integer form (just numbers no "")
     ],

@@ -1,3 +1,4 @@
+from discord import Activity, ActivityType, Game, Status, Streaming
 from discord.ext import commands
 from sdb_lib import Log, Config
 from os import listdir
@@ -33,8 +34,23 @@ def load_exts():
     return errors
 
 
+async def change_presence():
+    modes = [Status.online, Status.idle, Status.dnd, Status.offline]
+    mode = modes[Config.presence.mode]
+
+    _activity = Config.presence.activity
+    activities = [
+        Activity(type = ActivityType.playing, name = _activity), Activity(type = ActivityType.streaming, name = _activity),
+        Activity(type = ActivityType.listening, name = _activity), Activity(type = ActivityType.watching, name = _activity)
+    ]
+    activity = activities[Config.presence.status]
+
+    return await bot.change_presence(status = mode, activity = activity)
+
+
 @bot.event
 async def on_ready():
+    await change_presence()
     Log.info(f"Registered {len(bot.application_commands)} slash commands")
     Log.info(f"{bot.user.name} ({bot.application_id}) online")
 
