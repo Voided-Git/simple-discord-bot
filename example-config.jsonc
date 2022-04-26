@@ -74,6 +74,13 @@
             "clear.success": "`{}` message(s) were removed.",  // the amount of message were successfully removed
             "kick.fail": "{} can't be kicked by me.",  // the bot lacks KICK_MEMBERS permission or is lower ranking than the target user
             "kick.success": "`{}` was kicked.",  // the target user was successfully kicked
+            "ticket.create.fail": "You already have an ongoing ticket.",  // the user already has a concurrent ticket
+            "ticket.create.success": "Ticket created at {}.",  // a ticket was created for the target user
+            "ticket.delete.fail": "You don't have a ticket open.",  // the user doesn't have a concurrent ticket
+            "ticket.delete.success": "Deleting ticket in 5 seconds.",  // the ticket will be deleted
+            "ticket.message": "Please describe your issue in as much detail as possible so the support team can help you out as soon as possible, as quickly as possible when acknowledging your ticket, otherwise you will waste everyone's time.",  // the message sent in the created ticket channel
+            "tickets.fail": "Category and support role must be in ID form.",  // invalid inputs for category or support IDs
+            "tickets.success": "Ticketing setup.",  // ticketing setup successfully
             "timeout.error": "`{}` is an invalid duration.",  // an invalid duration specified, correct format is 3d (for 3 days) as an example
             "timeout.fail": "{} can't be timed out by me.",  // the bot lacks TIMEOUT_MEMBERS permission or is lower ranking than the target user
             "timeout.success": "{} was timed out."  // the target user was successfully timed out
