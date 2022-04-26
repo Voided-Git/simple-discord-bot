@@ -24,11 +24,12 @@
     "guild_ids": [  // necessary for slash commands to work, otherwise they would take an hour to register
         // guilds here in integer form (just numbers no "")
     ],
-    "developer_ids": [  // only for developer-type commands
+    "developer_ids": [  // only for developer-type commands and setup commands
         // developers here in integer form (just numbers no "")
     ],
 
-    "emotes": {  /*
+    "emotes": {
+        /*
         emotes used by the bot, must be in Discord format:
         ':emote_name:' - default Discord emotes
         '<:custom_emote_name:emote_id>' - custom still emotes
