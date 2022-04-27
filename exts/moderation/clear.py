@@ -16,8 +16,11 @@ class Clear(commands.Cog):
     @commands.bot_has_permissions(manage_messages = True)
     async def clear(
         self, ctx,
-        amount: Option(int, "messages")
+        amount: Option(int, "messages", min_value = 1)
     ):
+        if amount <= 0:
+            return await ctx.respond(embed = error_embed(Messages.clear_invalid_argument.replace("{}", str(amount))))
+
         try:
             await ctx.channel.purge(limit = amount)
             await ctx.respond(embed = success_embed(Messages.clear_success.replace("{}", str(amount))))
