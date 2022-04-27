@@ -44,6 +44,7 @@ class Messages:
     ban_fail = messages["moderation"]["ban.fail"]
     ban_success = messages["moderation"]["ban.success"]
     clear_fail = messages["moderation"]["clear.fail"]
+    clear_invalid_argument = messages["moderation"]["clear.invalid_argument"]
     clear_success = messages["moderation"]["clear.success"]
     kick_fail = messages["moderation"]["kick.fail"]
     kick_success = messages["moderation"]["kick.success"]

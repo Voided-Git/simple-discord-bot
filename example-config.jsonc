@@ -72,6 +72,7 @@
             "ban.fail": "{} can't be banned by me.",  // the bot lacks BAN_MEMBERS permission or is lower ranking than the target user
             "ban.success": "`{}` was banned.",  // the target user was successfully banned
             "clear.fail": "I don't have the right permissions.",  // the bot lacks MANAGE_MESSAGES permission
+            "clear.invalid_argument": "`{}` is not a valid amount of messages to delete.",  // the amount of messages specified is less than or equal to 0
             "clear.success": "`{}` message(s) were removed.",  // the amount of message were successfully removed
             "kick.fail": "{} can't be kicked by me.",  // the bot lacks KICK_MEMBERS permission or is lower ranking than the target user
             "kick.success": "`{}` was kicked.",  // the target user was successfully kicked
