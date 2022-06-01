@@ -24,21 +24,21 @@ class Timeout(commands.Cog):
     ):
         _duration = parse_time(duration)
         if not _duration:
-            return await ctx.respond(embed = error_embed(Messages.timeout_error.replace("{}", duration)))
+            return await ctx.respond(embed = error_embed(Messages.timeout_error.replace("{}", duration)), ephemeral = True)
 
         try:
             await member.timeout_for(duration = timedelta(seconds = _duration), reason = reason)
-            await ctx.respond(embed = success_embed(Messages.timeout_success.replace("{}", member.mention)))
+            await ctx.respond(embed = success_embed(Messages.timeout_success.replace("{}", member.mention)), ephemeral = True)
         except Exception:
-            await ctx.respond(embed = error_embed(Messages.timeout_fail.replace("{}", member.mention)))
+            await ctx.respond(embed = error_embed(Messages.timeout_fail.replace("{}", member.mention)), ephemeral = True)
 
     @timeout.error
     async def timeout_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
-            await ctx.respond(embed = error_embed(Messages.missing_permissions.replace("{}", "`MODERATE_MEMBERS`")))
+            await ctx.respond(embed = error_embed(Messages.missing_permissions.replace("{}", "`MODERATE_MEMBERS`")), ephemeral = True)
 
         elif isinstance(error, commands.BotMissingPermissions):
-            await ctx.respond(embed = error_embed(Messages.bot_missing_permissions.replace("{}", "`MODERATE_MEMBERS`")))
+            await ctx.respond(embed = error_embed(Messages.bot_missing_permissions.replace("{}", "`MODERATE_MEMBERS`")), ephemeral = True)
 
 
 def setup(bot):

@@ -19,21 +19,21 @@ class Clear(commands.Cog):
         amount: Option(int, "messages", min_value = 1)
     ):
         if amount <= 0:
-            return await ctx.respond(embed = error_embed(Messages.clear_invalid_argument.replace("{}", str(amount))))
+            return await ctx.respond(embed = error_embed(Messages.clear_invalid_argument.replace("{}", str(amount))), ephemeral = True)
 
         try:
             await ctx.channel.purge(limit = amount)
-            await ctx.respond(embed = success_embed(Messages.clear_success.replace("{}", str(amount))))
+            await ctx.respond(embed = success_embed(Messages.clear_success.replace("{}", str(amount))), ephemeral = True)
         except Exception:
             await ctx.respond(embed = error_embed(Messages.clear_fail))
 
     @clear.error
     async def clear_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
-            await ctx.respond(embed = error_embed(Messages.missing_permissions.replace("{}", "`MANAGE_MESSAGES`")))
+            await ctx.respond(embed = error_embed(Messages.missing_permissions.replace("{}", "`MANAGE_MESSAGES`")), ephemeral = True)
 
         elif isinstance(error, commands.BotMissingPermissions):
-            await ctx.respond(embed = error_embed(Messages.bot_missing_permissions.replace("{}", "`MANAGE_MESSAGES`")))
+            await ctx.respond(embed = error_embed(Messages.bot_missing_permissions.replace("{}", "`MANAGE_MESSAGES`")), ephemeral = True)
 
 
 def setup(bot):

@@ -20,7 +20,7 @@ class _8Ball(commands.Cog):
         if not question.endswith("?"):
             question += "?"
 
-        await ctx.respond(embed = info_embed(f"{question.capitalize()}\n{choice(Messages._8ball_responses)}"))
+        await ctx.respond(embed = info_embed(f"{question.capitalize()}\n{choice(Messages._8ball_responses)}"), ephemeral = True)
 
 
 def setup(bot):

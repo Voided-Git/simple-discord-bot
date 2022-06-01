@@ -62,7 +62,7 @@ class Ext(commands.Cog):
                 except Exception as exc:
                     em.description += f"\n‣ {ext} failed: ```\n{exc}\n```"
 
-        await ctx.respond(embed = em)
+        await ctx.respond(embed = em, ephemeral = True)
 
 
 def setup(bot):

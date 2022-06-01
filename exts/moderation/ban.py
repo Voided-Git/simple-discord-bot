@@ -22,17 +22,17 @@ class Ban(commands.Cog):
     ):
         try:
             await member.ban(reason = reason)
-            await ctx.respond(embed = success_embed(Messages.ban_success.replace("{}", member.name)))
+            await ctx.respond(embed = success_embed(Messages.ban_success.replace("{}", member.name)), ephemeral = True)
         except Exception:
-            await ctx.respond(embed = error_embed(Messages.ban_fail.replace("{}", member.mention)))
+            await ctx.respond(embed = error_embed(Messages.ban_fail.replace("{}", member.mention)), ephemeral = True)
 
     @ban.error
     async def ban_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
-            await ctx.respond(embed = error_embed(Messages.missing_permissions.replace("{}", "`BAN_MEMBERS`")))
+            await ctx.respond(embed = error_embed(Messages.missing_permissions.replace("{}", "`BAN_MEMBERS`")), ephemeral = True)
 
         elif isinstance(error, commands.BotMissingPermissions):
-            await ctx.respond(embed = error_embed(Messages.bot_missing_permissions.replace("{}", "`BAN_MEMBERS`")))
+            await ctx.respond(embed = error_embed(Messages.bot_missing_permissions.replace("{}", "`BAN_MEMBERS`")), ephemeral = True)
 
 
 def setup(bot):
