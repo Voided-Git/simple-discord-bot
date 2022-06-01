@@ -53,7 +53,6 @@ class Messages:
     ticket_delete_fail = messages["moderation"]["ticket.delete.fail"]
     ticket_delete_success = messages["moderation"]["ticket.delete.success"]
     ticket_message = messages["moderation"]["ticket.message"]
-    tickets_fail = messages["moderation"]["tickets.fail"]
     tickets_success = messages["moderation"]["tickets.success"]
     timeout_error = messages["moderation"]["timeout.error"]
     timeout_fail = messages["moderation"]["timeout.fail"]

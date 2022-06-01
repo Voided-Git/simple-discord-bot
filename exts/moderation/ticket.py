@@ -1,8 +1,8 @@
-from discord import Embed, Color
+from discord import Embed, Color, CategoryChannel, Role
 from discord.commands import slash_command, Option
 from discord.ext import commands
 from discord.utils import get
-from sdb_lib import Config, Messages, info_embed, success_embed, error_embed, load_json, is_int
+from sdb_lib import Config, Messages, info_embed, success_embed, error_embed, load_json
 from json import dump
 from asyncio import sleep
 
@@ -68,7 +68,7 @@ class Ticket(commands.Cog):
                 read_message_history = True
             )
 
-            await ctx.respond(embed = info_embed(Messages.ticket_create_success.replace("{}", channel.mention)))
+            await ctx.respond(embed = info_embed(Messages.ticket_create_success.replace("{}", channel.mention)), ephemeral = True)
 
             await channel.send("@everyone")
             await channel.send(embed = Embed(
@@ -92,11 +92,11 @@ class Ticket(commands.Cog):
                     t = tickets["tickets"].index(i)
 
             if t:
-                return await ctx.respond(embed = error_embed(Messages.ticket_delete_fail))
+                return await ctx.respond(embed = error_embed(Messages.ticket_delete_fail), ephemeral = True)
 
             channel = get(ctx.guild.channels, id = tickets["tickets"][t]["channel_id"])
 
-            await ctx.respond(embed = success_embed(Messages.ticket_delete_success))
+            await ctx.respond(embed = success_embed(Messages.ticket_delete_success), ephemeral = True)
             await sleep(5)
 
             if channel:
@@ -113,28 +113,25 @@ class Ticket(commands.Cog):
     )
     async def ticket_setup(
         self, ctx,
-        category: Option(str, "category ID"),
-        support: Option(str, "support role ID")
+        category: Option(CategoryChannel, "category"),
+        support: Option(Role, "support role")
     ):
         if ctx.author.id not in Config.developer_ids:
-            return await ctx.respond(embed = error_embed(Messages.not_developer))
-
-        if not is_int(category) or not is_int(support):
-            return await ctx.respond(embed = error_embed(Messages.tickets_fail))
+            return await ctx.respond(embed = error_embed(Messages.not_developer), ephemeral = True)
 
         tickets = load_json("./tickets.json")
-        tickets["category"] = int(category)
-        tickets["support"] = int(support)
+        tickets["category"] = category.id
+        tickets["support"] = support.id
 
         with open("./tickets.json", "w") as f:
             dump(tickets, f, indent = 4)
 
-        await ctx.respond(embed = success_embed(Messages.tickets_success))
+        await ctx.respond(embed = success_embed(Messages.tickets_success), ephemeral = True)
 
     @ticket.error
     async def ticket_error(self, ctx, error):
         if isinstance(error, commands.BotMissingPermissions):
-            await ctx.respond(embed = error_embed(Messages.bot_missing_permissions.replace("{}", "`MANAGE_CHANNELS`")))
+            await ctx.respond(embed = error_embed(Messages.bot_missing_permissions.replace("{}", "`MANAGE_CHANNELS`")), ephemeral = True)
 
 
 def setup(bot):
