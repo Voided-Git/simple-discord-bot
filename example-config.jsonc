@@ -76,6 +76,7 @@
             "clear.success": "`{}` message(s) were removed.",  // the amount of message were successfully removed
             "kick.fail": "{} can't be kicked by me.",  // the bot lacks KICK_MEMBERS permission or is lower ranking than the target user
             "kick.success": "`{}` was kicked.",  // the target user was successfully kicked
+            "logging.success": "Logging setup.",  // logging setup successfully
             "ticket.create.fail": "You already have an ongoing ticket.",  // the user already has a concurrent ticket
             "ticket.create.success": "Ticket created at {}.",  // a ticket was created for the target user
             "ticket.delete.fail": "You don't have a ticket open.",  // the user doesn't have a concurrent ticket

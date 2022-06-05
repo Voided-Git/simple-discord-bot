@@ -48,6 +48,7 @@ class Messages:
     clear_success = messages["moderation"]["clear.success"]
     kick_fail = messages["moderation"]["kick.fail"]
     kick_success = messages["moderation"]["kick.success"]
+    logging_success = messages["moderation"]["logging.success"]
     ticket_create_fail = messages["moderation"]["ticket.create.fail"]
     ticket_create_success = messages["moderation"]["ticket.create.success"]
     ticket_delete_fail = messages["moderation"]["ticket.delete.fail"]
