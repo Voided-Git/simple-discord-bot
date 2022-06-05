@@ -8,5 +8,11 @@ A simple Discord bot built using [PyCord](https://pycord.dev)'s Discord API wrap
 ## Todo ##
 - [ ] Add configurability for enabling or disabling commands / features
 - [ ] Add more logging
+    - [ ] Role creation / update / deletion
+    - [ ] Voice state changes
+    - [ ] Channel creation / update / deletion
+    - [ ] Invite link creation / deletion
+    - [ ] Scheduled even creation / update / deletion
+    - [ ] Others that get suggested
 - [ ] Add old style error handling (SDTB)
 - [ ] Add docs / wiki
