@@ -21,5 +21,5 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Code checking with flake8
         run: |
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=300 --statistics
+          flake8 . --count --select=E9,F63,F7,F82 --ignore=E251,E501,E266,F401,F722,F821 --show-source --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=300 --ignore=E251,E501,E266,F401,F722,F821 --statistics
