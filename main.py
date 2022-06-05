@@ -1,4 +1,4 @@
-from discord import Activity, ActivityType, Status
+from discord import Activity, ActivityType, Status, Intents
 from discord.ext import commands
 from sdb_lib import Log, Config
 from os import listdir
@@ -8,7 +8,8 @@ from json import dump
 bot = commands.Bot(
     command_prefix = Config.prefix,
     case_insensitive = True,
-    help_command = None
+    help_command = None,
+    intents = Intents.all()
 )
 
 
