@@ -31,16 +31,8 @@ class Ticket(commands.Cog):
         self, ctx,
         option: Option(str, "option", choices = ["new", "delete"])
     ):
-        try:
-            tickets = load_json("./tickets.json")
-        except FileNotFoundError:
-            with open("./tickets.json", "w+") as f:
-                f.write({
-                    "number": 0,
-                    "category": None,
-                    "support": None,
-                    "tickets": []
-                })
+        data = load_json("./data.json")
+        tickets = data["tickets"]
 
         if option == "new":
             for i in tickets["tickets"]:
@@ -77,12 +69,13 @@ class Ticket(commands.Cog):
                 description = Messages.ticket_message
             ))
 
-            with open("./tickets.json", "w") as f:
+            with open("./data.json", "w") as f:
+                data["tickets"] = tickets
                 tickets["tickets"].append({
                     "user_id": ctx.author.id,
                     "channel_id": channel.id
                 })
-                dump(tickets, f, indent = 4)
+                dump(data, f, indent = 4)
 
         elif option == "delete":
             t = True
@@ -103,6 +96,7 @@ class Ticket(commands.Cog):
                 await channel.delete()
 
             with open("./tickets.json", "w") as f:
+                data["tickets"] = tickets
                 tickets["tickets"].pop(t)
                 dump(tickets, f, indent = 4)
 
@@ -119,12 +113,14 @@ class Ticket(commands.Cog):
         if ctx.author.id not in Config.developer_ids:
             return await ctx.respond(embed = error_embed(Messages.not_developer), ephemeral = True)
 
-        tickets = load_json("./tickets.json")
+        data = load_json("./data.json")
+        tickets = data["tickets"]
         tickets["category"] = category.id
         tickets["support"] = support.id
 
         with open("./tickets.json", "w") as f:
-            dump(tickets, f, indent = 4)
+            data["tickets"] = tickets
+            dump(data, f, indent = 4)
 
         await ctx.respond(embed = success_embed(Messages.tickets_success), ephemeral = True)
 
